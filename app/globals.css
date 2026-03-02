@@ -1,0 +1,182 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #101828;
+  --subtle: #667085;
+  --line: #d0d5dd;
+  --primary: #14532d;
+  --primary-soft: #dcfce7;
+  --danger: #9f1239;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 32%, #f8fafc 100%);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 16px 48px;
+}
+
+.header {
+  margin-bottom: 18px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.header p {
+  margin: 8px 0 0;
+  color: var(--subtle);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.form-row {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 12px;
+  color: var(--subtle);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+button.secondary {
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.contact-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.contact-name {
+  font-weight: 700;
+}
+
+.contact-phone {
+  margin-top: 2px;
+  color: var(--subtle);
+  font-size: 14px;
+}
+
+.contact-note {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.call-list {
+  display: grid;
+  gap: 10px;
+}
+
+.call-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.call-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #eef2ff;
+  color: #312e81;
+}
+
+.summary {
+  margin-top: 8px;
+  white-space: pre-line;
+  font-size: 14px;
+}
+
+.muted {
+  color: var(--subtle);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
