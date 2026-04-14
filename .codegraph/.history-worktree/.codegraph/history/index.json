@@ -1,0 +1,438 @@
+{
+  "version": 1,
+  "branch": "codegraph/history-local",
+  "updatedAt": "2026-03-05T13:12:28.843Z",
+  "rounds": [
+    {
+      "roundId": "20260305203445-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:34:45.395Z",
+      "baseRef": "HEAD",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 46,
+      "changedNodes": 12,
+      "changedEdges": 16,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (7)",
+        "Call edge removals detected (2)",
+        "Generated nodes could not be mapped (7)"
+      ]
+    },
+    {
+      "roundId": "20260305203449-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T11:34:49.773Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (7)",
+        "Generated nodes could not be mapped (7)"
+      ]
+    },
+    {
+      "roundId": "20260305203529-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:35:29.985Z",
+      "baseRef": "1ab999f389653aace5a11416664e3b19b0626929",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 8,
+      "changedEdges": 11,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (7)",
+        "Generated nodes could not be mapped (7)"
+      ]
+    },
+    {
+      "roundId": "20260305203604-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T11:36:04.853Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305203604-5ebe4fc-02",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:36:04.873Z",
+      "baseRef": "6511c5e3bbfa029c2088a37a29bd8eeeb8de12a0",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 8,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305203826-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T11:38:26.489Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305203826-5ebe4fc-02",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:38:26.521Z",
+      "baseRef": "1171345ed0fcbe1601f7567b74248bf0c38aae04",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305204531-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:45:31.497Z",
+      "baseRef": "ccf2d4cd211b586dda07a0e1b288f0cb45c155c5",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305204733-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:47:33.657Z",
+      "baseRef": "041871c2f5105ffa33fa89120de031c9ee6e920e",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305204748-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T11:47:48.110Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205646-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T11:56:46.848Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205646-5ebe4fc-02",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:56:46.967Z",
+      "baseRef": "e6590a0a2657d99809e575f41146ab8f637a51a9",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205702-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:57:02.554Z",
+      "baseRef": "9da99a964ab371f6bc28655f68ff87bfb42b7cfc",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205732-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T11:57:32.202Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205732-5ebe4fc-02",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:57:32.230Z",
+      "baseRef": "272f7505bcaf2616e8c2cc64018654adab6684a0",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205742-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:57:42.235Z",
+      "baseRef": "e56ac836677aaff6730be8c36c975532348ba706",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205802-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:58:02.578Z",
+      "baseRef": "f0d913e640ea46d50cad26f67906116bf45c62b0",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205806-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T11:58:06.131Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305205842-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T11:58:42.519Z",
+      "baseRef": "b9e8e0ffae815e2c23b0149cb4406bb885d45042",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305211240-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T12:12:40.539Z",
+      "baseRef": "e1c20db68a0d2b0d58c1edce71a60b4a1ef9624a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305211244-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T12:12:44.347Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305212026-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T12:20:27.030Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305212027-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T12:20:27.077Z",
+      "baseRef": "695c0daef3453057cacb398fc475ab4d5bb342d9",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305212120-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T12:21:20.153Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305212120-5ebe4fc-02",
+      "mode": "working",
+      "createdAt": "2026-03-05T12:21:20.189Z",
+      "baseRef": "ac4d88b8a463bcba1dfc352a883128269218056f",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305212139-5ebe4fc-01",
+      "mode": "pr",
+      "createdAt": "2026-03-05T12:21:39.875Z",
+      "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 0,
+      "changedNodes": 0,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305212139-5ebe4fc-02",
+      "mode": "working",
+      "createdAt": "2026-03-05T12:21:39.911Z",
+      "baseRef": "614cfbb5b6f96feb4ac086f2ba1021eb6f7b9609",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305212144-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T12:21:44.417Z",
+      "baseRef": "ad554cba66180a5926f08e5b9a02bdf58d022fde",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 9,
+      "changedEdges": 0,
+      "approvalRequired": false,
+      "approvalReasons": []
+    },
+    {
+      "roundId": "20260305215827-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T12:58:27.429Z",
+      "baseRef": "51ba652b345014241b410cff7d3bbd8564f5bebc",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 8,
+      "changedEdges": 0,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (1)"
+      ]
+    },
+    {
+      "roundId": "20260305220321-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T13:03:21.590Z",
+      "baseRef": "5009b448e7142603868cc9d36deb8c626edb680f",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 8,
+      "changedEdges": 18,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (1)"
+      ]
+    },
+    {
+      "roundId": "20260305220923-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T13:09:23.490Z",
+      "baseRef": "79a1c023bdce6f3e15d582fd6cf2735ffd428bb9",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 8,
+      "changedEdges": 18,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (1)"
+      ]
+    },
+    {
+      "roundId": "20260305221029-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T13:10:29.774Z",
+      "baseRef": "3d9b25fa47d41b334c41c42fce716049489f4fdc",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 8,
+      "changedEdges": 18,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (1)"
+      ]
+    },
+    {
+      "roundId": "20260305221058-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T13:10:58.927Z",
+      "baseRef": "d9a258eda4e0c4253ad05bdfcc1eb44288c7cd92",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 8,
+      "changedEdges": 18,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (1)"
+      ]
+    },
+    {
+      "roundId": "20260305221228-5ebe4fc-01",
+      "mode": "working",
+      "createdAt": "2026-03-05T13:12:28.842Z",
+      "baseRef": "5b33f1f378fa0b7a93c76676e3dcf3df7f4be7f0",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "filesChanged": 30,
+      "changedNodes": 8,
+      "changedEdges": 18,
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (1)"
+      ]
+    }
+  ],
+  "lastRoundId": "20260305221228-5ebe4fc-01"
+}

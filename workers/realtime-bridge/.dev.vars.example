@@ -1,0 +1,11 @@
+OPENAI_API_KEY=
+OPENAI_REALTIME_MODEL=gpt-realtime
+OPENAI_REALTIME_VOICE=shimmer
+AGENT_NAME=네스트콜 AI
+TWILIO_AUTH_TOKEN=
+TWILIO_SIGNATURE_VALIDATION=true
+WORKER_WEBHOOK_SECRET=
+
+# Optional: transcript/status forwarding to your app backend
+TRANSCRIPT_WEBHOOK_URL=https://your-app.example.com/api/internal/transcript
+STATUS_WEBHOOK_URL=https://your-app.example.com/api/twilio/status

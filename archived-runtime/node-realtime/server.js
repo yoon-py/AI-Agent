@@ -34,7 +34,7 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
-const dbPath = path.join(dataDir, "nestcall.db");
+const dbPath = path.join(dataDir, "agentcall.db");
 const db = new Database(dbPath);
 db.pragma("journal_mode = WAL");
 
@@ -186,7 +186,7 @@ function createRealtimeBridge(twilioWs) {
   let contactId = 0;
   let contactName = "고객";
   let contactNote = "";
-  let agentName = process.env.AGENT_NAME || "네스트콜 AI";
+  let agentName = process.env.AGENT_NAME || "AgentCall AI";
 
   let latestMediaTimestamp = 0;
   let responseStartTimestampTwilio = null;

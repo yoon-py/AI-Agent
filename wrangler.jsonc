@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "agentcall-dashboard",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-03-02",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "agentcall-dashboard"
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "AGENTCALL_DB",
+      "database_name": "agentcall-db",
+      "database_id": "c0ce3792-cca6-4c68-8c2d-8ff92ae134c4",
+      "preview_database_id": "c0ce3792-cca6-4c68-8c2d-8ff92ae134c4",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "NEXTJS_ENV": "production",
+    "APP_BASE_URL": "https://agentcall-dashboard.yoonpub0.workers.dev",
+    "CALL_WEBHOOK_BASE_URL": "https://agentcall-realtime-bridge.yoonpub0.workers.dev",
+    "OPENAI_MODEL": "gpt-4o-mini",
+    "OPENAI_REALTIME_MODEL": "gpt-realtime",
+    "OPENAI_REALTIME_VOICE": "marin",
+    "OPENAI_REALTIME_VOICE_MAP": "{}",
+    "DEFAULT_CALL_LANGUAGE": "ko",
+    "ELEVENLABS_MODEL_ID": "eleven_multilingual_v2",
+    "ELEVENLABS_VOICE_MAP": "{}",
+    "AGENT_NAME": "Alloy"
+  }
+}

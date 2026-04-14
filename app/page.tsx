@@ -1,149 +1,146 @@
-import { revalidatePath } from "next/cache";
-import { createContact, listCalls, listContacts } from "@/lib/db";
-import { startOutboundCall } from "@/lib/calls";
-import { reconcileRecentCalls } from "@/lib/reconcile";
+import { listCalls, listContacts } from "@/lib/db";
+import { getRuntimeStringEnv } from "@/lib/env";
+import { formatPhoneWithFlag } from "@/lib/phone";
 
-function formatDate(value: string | null): string {
-  if (!value) {
-    return "-";
-  }
+export const dynamic = "force-dynamic";
 
-  const date = new Date(value.includes("T") ? value : `${value}Z`);
-  return new Intl.DateTimeFormat("ko-KR", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit"
-  }).format(date);
+function isInProgress(status: string): boolean {
+  const value = status.toLowerCase();
+  return value === "queued" || value === "initiated" || value === "ringing" || value === "answered" || value === "in-progress";
 }
 
-async function addContactAction(formData: FormData): Promise<void> {
-  "use server";
-
-  const name = String(formData.get("name") ?? "").trim();
-  const phone = String(formData.get("phone") ?? "").trim();
-  const note = String(formData.get("note") ?? "").trim();
-
-  if (!name || !phone) {
-    return;
-  }
-
-  createContact({ name, phone, note });
-  revalidatePath("/");
-}
-
-async function startCallAction(formData: FormData): Promise<void> {
-  "use server";
-
-  const contactId = Number(formData.get("contactId"));
-  if (!Number.isFinite(contactId)) {
-    return;
-  }
-
-  await startOutboundCall(contactId);
-  revalidatePath("/");
-}
-
-async function syncCallsAction(): Promise<void> {
-  "use server";
-
-  await reconcileRecentCalls(12);
-  revalidatePath("/");
+function isCompletedToday(startedAt: string, today: Date): boolean {
+  const date = new Date(startedAt.includes("T") ? startedAt : `${startedAt}Z`);
+  return (
+    date.getUTCFullYear() === today.getUTCFullYear() &&
+    date.getUTCMonth() === today.getUTCMonth() &&
+    date.getUTCDate() === today.getUTCDate()
+  );
 }
 
 export default async function HomePage() {
-  await reconcileRecentCalls(6);
+  const [contacts, allRecentCalls] = await Promise.all([
+    listContacts(),
+    listCalls({ limit: 160 })
+  ]);
+  const twilioPhoneNumber = getRuntimeStringEnv("TWILIO_PHONE_NUMBER");
+  const twilioPhoneDisplay = twilioPhoneNumber
+    ? formatPhoneWithFlag(twilioPhoneNumber)
+    : { flag: "📵", number: "미설정" };
 
-  const contacts = listContacts();
-  const calls = listCalls(60);
+  const inProgressCount = allRecentCalls.filter((call) => isInProgress(call.status)).length;
+
+  const today = new Date();
+  const completedTodayCount = allRecentCalls.filter(
+    (call) => call.status.toLowerCase() === "completed" && isCompletedToday(call.started_at, today)
+  ).length;
+
+  const summaryFailedCount = allRecentCalls.filter((call) => call.summary_status === "failed").length;
 
   return (
-    <main className="container">
-      <section className="header">
-        <h1>NestCall Dashboard</h1>
-        <p>
-          Twilio 발신 통화, OpenAI Realtime 음성 대화, 통화 기록/요약을 한 화면에서 관리합니다.
-        </p>
-      </section>
+    <>
+      <div className="page-header">
+        <h3 className="page-title">
+          <span className="page-title-icon bg-gradient-primary">📊</span>
+          대시보드
+        </h3>
+        <nav>
+          <ul className="breadcrumb">
+            <li>홈</li>
+            <li className="active">대시보드</li>
+          </ul>
+        </nav>
+      </div>
 
-      <section className="grid">
-        <article className="card">
-          <h2>연락처 등록</h2>
-          <form action={addContactAction}>
-            <div className="form-row">
-              <label htmlFor="name">이름</label>
-              <input id="name" name="name" placeholder="홍길동" required />
-            </div>
-
-            <div className="form-row">
-              <label htmlFor="phone">전화번호(E.164)</label>
-              <input id="phone" name="phone" placeholder="+821012345678" required />
-            </div>
-
-            <div className="form-row">
-              <label htmlFor="note">메모(선택)</label>
-              <textarea id="note" name="note" placeholder="통화 성향, 주의사항 등" />
-            </div>
-
-            <button className="primary" type="submit">
-              저장
-            </button>
-          </form>
-
-          <h2 style={{ marginTop: 18 }}>연락처</h2>
-          {contacts.length === 0 ? (
-            <p className="muted">아직 등록된 연락처가 없습니다.</p>
-          ) : (
-            <ul className="contact-list">
-              {contacts.map((contact) => (
-                <li key={contact.id} className="contact-item">
-                  <div className="contact-name">{contact.name}</div>
-                  <div className="contact-phone">{contact.phone}</div>
-                  {contact.note ? <div className="contact-note">{contact.note}</div> : null}
-
-                  <form action={startCallAction} style={{ marginTop: 8 }}>
-                    <input type="hidden" name="contactId" value={String(contact.id)} />
-                    <button className="secondary" type="submit">
-                      이 연락처로 통화 시작
-                    </button>
-                  </form>
-                </li>
-              ))}
-            </ul>
-          )}
-        </article>
-
-        <article className="card">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
-            <h2 style={{ marginBottom: 0 }}>최근 통화 로그</h2>
-            <form action={syncCallsAction}>
-              <button className="secondary" type="submit">
-                상태/요약 동기화
-              </button>
-            </form>
+      <div className="stats-grid">
+        <article className="stat-card gradient-danger">
+          <div className="stat-label">
+            활성 연락처
+            <span className="stat-icon">👤</span>
           </div>
-          {calls.length === 0 ? (
-            <p className="muted">통화 기록이 없습니다.</p>
-          ) : (
-            <div className="call-list">
-              {calls.map((call) => (
-                <div key={call.id} className="call-item">
-                  <div className="call-head">
-                    <strong>
-                      {call.contact_name} ({call.contact_phone})
-                    </strong>
-                    <span className="badge">{call.status}</span>
-                  </div>
-                  <div className="muted">시작: {formatDate(call.started_at)} / 종료: {formatDate(call.ended_at)}</div>
-                  <div className="muted">Call SID: {call.twilio_call_sid}</div>
-                  <div className="summary">{call.summary || "요약 대기 중"}</div>
-                </div>
-              ))}
-            </div>
-          )}
+          <strong className="stat-value">{contacts.length}</strong>
+          <div className="stat-change">등록된 연락처 수</div>
         </article>
+
+        <article className="stat-card gradient-info">
+          <div className="stat-label">
+            진행 중 통화
+            <span className="stat-icon">📞</span>
+          </div>
+          <strong className="stat-value">{inProgressCount}</strong>
+          <div className="stat-change">현재 활성 통화</div>
+        </article>
+
+        <article className="stat-card gradient-success">
+          <div className="stat-label">
+            오늘 완료 통화
+            <span className="stat-icon">✅</span>
+          </div>
+          <strong className="stat-value">{completedTodayCount}</strong>
+          <div className="stat-change">오늘 완료된 통화</div>
+        </article>
+
+        <article className="stat-card gradient-warning">
+          <div className="stat-label">
+            요약 실패
+            <span className="stat-icon">⚠️</span>
+          </div>
+          <strong className="stat-value">{summaryFailedCount}</strong>
+          <div className="stat-change">재시도 필요</div>
+        </article>
+      </div>
+
+      <div className="stats-grid agent-phone-grid">
+        <section className="card agent-phone-card">
+          <div className="card-body">
+            <h4 className="card-title">에이전트 번호</h4>
+            <p className="card-description">Twilio 기본 발신 번호</p>
+            <strong className="agent-phone-value">
+              <span className="agent-phone-flag">{twilioPhoneDisplay.flag}</span>
+              <span>{twilioPhoneDisplay.number}</span>
+            </strong>
+          </div>
+        </section>
+      </div>
+
+      <section className="card">
+        <div className="card-body">
+          <h4 className="card-title">통화 시나리오</h4>
+          <p className="card-description">
+            Alloy는 친구처럼 대화하며, 이전 통화와 프로필을 기억해 자연스럽게 이어갑니다.
+          </p>
+
+          <div className="scenario-grid">
+            <article className="scenario-block">
+              <h5 className="scenario-title">수신 시 (상대가 AI 번호로 전화)</h5>
+              <p className="scenario-label">AI 시작 멘트</p>
+              <p className="scenario-quote">
+                "안녕하세요, Alloy예요. 오늘은 하루가 어떠셨어요?"
+              </p>
+              <p className="scenario-label">이렇게 답하면 좋아요</p>
+              <ul className="scenario-list">
+                <li>"네, 오늘은 식사는 했고 잠은 좀 설쳤어요."</li>
+                <li>"지금은 어지럽고 허리가 조금 아파요."</li>
+                <li>"도움이 필요한 건 약 챙기는 거예요."</li>
+              </ul>
+            </article>
+
+            <article className="scenario-block">
+              <h5 className="scenario-title">발신 시 (대시보드에서 연락처로 전화)</h5>
+              <p className="scenario-label">AI 시작 멘트</p>
+              <p className="scenario-quote">
+                연락처/이전 통화 맥락을 짧게 언급하고, 한 가지 주제로 자연스럽게 이어서 대화합니다.
+              </p>
+              <p className="scenario-label">이렇게 답하면 좋아요</p>
+              <ul className="scenario-list">
+                <li>"오늘 컨디션은 70점 정도예요."</li>
+                <li>"어제는 잠이 들기 어려웠어요."</li>
+                <li>"지금 당장 필요한 건 없고 내일 병원 예약이 있어요."</li>
+              </ul>
+            </article>
+          </div>
+        </div>
       </section>
-    </main>
+    </>
   );
 }

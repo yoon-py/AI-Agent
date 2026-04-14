@@ -1,0 +1,451 @@
+{
+  "roundId": "20260305204531-5ebe4fc-01",
+  "mode": "working",
+  "createdAt": "2026-03-05T11:45:31.497Z",
+  "baseRef": "ccf2d4cd211b586dda07a0e1b288f0cb45c155c5",
+  "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+  "filesChanged": 30,
+  "changedNodes": 9,
+  "changedEdges": 0,
+  "approvalRequired": false,
+  "approvalReasons": [],
+  "projectName": "NestCall",
+  "generatedAt": "2026-03-05T11:45:31.444Z",
+  "compareContext": {
+    "mode": "working",
+    "baseRef": "ccf2d4cd211b586dda07a0e1b288f0cb45c155c5",
+    "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+    "computedAt": "2026-03-05T11:45:31.373Z"
+  },
+  "changedNodeIds": [],
+  "newNodeIds": [
+    "pkg-app-app",
+    "pkg-app-app-route-api-internal-call-context-route-ts",
+    "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+    "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+    "pkg-app-app-route-api-internal-transcript-route-ts",
+    "pkg-lib-lib",
+    "pkg-lib-lib-module-db-ts",
+    "pkg-realtime-bridge-workers-realtime-bridge",
+    "pkg-workers-workers"
+  ],
+  "removedNodeIds": [],
+  "nodeChanges": [
+    {
+      "nodeId": "pkg-app-app",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/.DS_Store",
+          "status": "untracked",
+          "additions": 5,
+          "deletions": 0
+        },
+        {
+          "path": "app/api/internal/call-context/route.ts",
+          "status": "untracked",
+          "additions": 95,
+          "deletions": 0
+        },
+        {
+          "path": "app/api/internal/extraction/retry/route.ts",
+          "status": "untracked",
+          "additions": 42,
+          "deletions": 0
+        },
+        {
+          "path": "app/api/internal/questions/reorder/route.ts",
+          "status": "untracked",
+          "additions": 31,
+          "deletions": 0
+        },
+        {
+          "path": "app/api/internal/transcript/route.ts",
+          "status": "untracked",
+          "additions": 65,
+          "deletions": 0
+        },
+        {
+          "path": "app/calls/page.tsx",
+          "status": "untracked",
+          "additions": 292,
+          "deletions": 0
+        },
+        {
+          "path": "app/contacts/page.tsx",
+          "status": "untracked",
+          "additions": 258,
+          "deletions": 0
+        },
+        {
+          "path": "app/questions/page.tsx",
+          "status": "untracked",
+          "additions": 310,
+          "deletions": 0
+        },
+        {
+          "path": "app/questions/QuestionList.tsx",
+          "status": "untracked",
+          "additions": 210,
+          "deletions": 0
+        },
+        {
+          "path": "app/summaries/page.tsx",
+          "status": "untracked",
+          "additions": 349,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/domain"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/env"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/call-completion"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "zod"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/reconcile"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "next/cache"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "next/link"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "next/navigation"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/calls"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/phone"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "react"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-app-app: 10 file(s), symbols routes=0, db=0, external=0, imports=13"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/api/internal/call-context/route.ts",
+          "status": "untracked",
+          "additions": 95,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/domain"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/env"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-app-app-route-api-internal-call-context-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=3"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/api/internal/extraction/retry/route.ts",
+          "status": "untracked",
+          "additions": 42,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/call-completion"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "zod"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-app-app-route-api-internal-extraction-retry-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=4"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/api/internal/questions/reorder/route.ts",
+          "status": "untracked",
+          "additions": 31,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "zod"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-app-app-route-api-internal-questions-reorder-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=2"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-internal-transcript-route-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/api/internal/transcript/route.ts",
+          "status": "untracked",
+          "additions": 65,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/call-completion"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "zod"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-app-app-route-api-internal-transcript-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=4"
+    },
+    {
+      "nodeId": "pkg-lib-lib",
+      "status": "new",
+      "files": [
+        {
+          "path": "lib/call-completion.ts",
+          "status": "untracked",
+          "additions": 128,
+          "deletions": 0
+        },
+        {
+          "path": "lib/domain.ts",
+          "status": "untracked",
+          "additions": 88,
+          "deletions": 0
+        },
+        {
+          "path": "lib/internal-auth.ts",
+          "status": "untracked",
+          "additions": 26,
+          "deletions": 0
+        },
+        {
+          "path": "lib/phone.ts",
+          "status": "untracked",
+          "additions": 40,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/env"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "node:crypto"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/domain"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "libphonenumber-js"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-lib-lib: 4 file(s), symbols routes=0, db=0, external=0, imports=5"
+    },
+    {
+      "nodeId": "pkg-lib-lib-module-db-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": ".DS_Store",
+          "status": "untracked",
+          "additions": 16,
+          "deletions": 0
+        }
+      ],
+      "symbols": [],
+      "edgeChanges": [],
+      "summary": "pkg-lib-lib-module-db-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=0"
+    },
+    {
+      "nodeId": "pkg-realtime-bridge-workers-realtime-bridge",
+      "status": "new",
+      "files": [
+        {
+          "path": "workers/realtime-bridge/.dev.vars.example",
+          "status": "untracked",
+          "additions": 12,
+          "deletions": 0
+        },
+        {
+          "path": "workers/realtime-bridge/package-lock.json",
+          "status": "untracked",
+          "additions": 1528,
+          "deletions": 0
+        },
+        {
+          "path": "workers/realtime-bridge/package.json",
+          "status": "untracked",
+          "additions": 15,
+          "deletions": 0
+        },
+        {
+          "path": "workers/realtime-bridge/README.md",
+          "status": "untracked",
+          "additions": 47,
+          "deletions": 0
+        },
+        {
+          "path": "workers/realtime-bridge/src/index.ts",
+          "status": "untracked",
+          "additions": 1031,
+          "deletions": 0
+        },
+        {
+          "path": "workers/realtime-bridge/tsconfig.json",
+          "status": "untracked",
+          "additions": 13,
+          "deletions": 0
+        },
+        {
+          "path": "workers/realtime-bridge/wrangler.toml",
+          "status": "untracked",
+          "additions": 16,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "externalService",
+          "action": "added",
+          "value": "OpenAI"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-realtime-bridge-workers-realtime-bridge: 7 file(s), symbols routes=0, db=0, external=1, imports=0"
+    },
+    {
+      "nodeId": "pkg-workers-workers",
+      "status": "new",
+      "files": [
+        {
+          "path": "workers/realtime-bridge/src/index.ts",
+          "status": "untracked",
+          "additions": 1031,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "externalService",
+          "action": "added",
+          "value": "OpenAI"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-workers-workers: 1 file(s), symbols routes=0, db=0, external=1, imports=0"
+    }
+  ]
+}

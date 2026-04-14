@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "ontologyVersion": "1.1.0",
+    "labelFormat": "verb/attrs",
+    "maxAttrs": 2,
+    "edgeVerbLang": "en"
+  },
+  "verbs": [
+    "request",
+    "call",
+    "route",
+    "data",
+    "store",
+    "deploy"
+  ],
+  "attributes": [
+    "jwt",
+    "session",
+    "rw",
+    "r",
+    "w",
+    "prod",
+    "dev",
+    "image",
+    "cache",
+    "file"
+  ],
+  "properties": [
+    {
+      "id": "request",
+      "kind": "object",
+      "domain": [
+        "service",
+        "frontend",
+        "mobile"
+      ],
+      "range": [
+        "service",
+        "external"
+      ],
+      "displayVerbEn": "request",
+      "displayPatternEn": "request/{{auth}}"
+    },
+    {
+      "id": "call",
+      "kind": "object",
+      "domain": [
+        "service",
+        "frontend",
+        "mobile",
+        "scheduler"
+      ],
+      "range": [
+        "service",
+        "external",
+        "database",
+        "frontend",
+        "mobile"
+      ],
+      "displayVerbEn": "call",
+      "displayPatternEn": "call"
+    },
+    {
+      "id": "route",
+      "kind": "object",
+      "domain": [
+        "service",
+        "frontend",
+        "mobile"
+      ],
+      "range": [
+        "service"
+      ],
+      "displayVerbEn": "route",
+      "displayPatternEn": "route"
+    },
+    {
+      "id": "data",
+      "kind": "object",
+      "domain": [
+        "service",
+        "frontend"
+      ],
+      "range": [
+        "database",
+        "service",
+        "external"
+      ],
+      "displayVerbEn": "data",
+      "displayPatternEn": "data/{{access}}&{{env}}"
+    },
+    {
+      "id": "store",
+      "kind": "object",
+      "domain": [
+        "service",
+        "frontend"
+      ],
+      "range": [
+        "external",
+        "database"
+      ],
+      "displayVerbEn": "store",
+      "displayPatternEn": "store/{{resource}}"
+    },
+    {
+      "id": "deploy",
+      "kind": "object",
+      "domain": [
+        "frontend",
+        "service"
+      ],
+      "range": [
+        "external"
+      ],
+      "displayVerbEn": "deploy",
+      "displayPatternEn": "deploy"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "data-must-target-db-like-node",
+      "verb": "data",
+      "targetClass": [
+        "database",
+        "service",
+        "external"
+      ]
+    }
+  ],
+  "mappingRules": [
+    {
+      "id": "map-route",
+      "rawKind": "route",
+      "verb": "route",
+      "detailPatternEn": "{{detail}}",
+      "priority": 100
+    },
+    {
+      "id": "map-module",
+      "rawKind": "module",
+      "verb": "route",
+      "detailPatternEn": "{{detail}}",
+      "priority": 95
+    },
+    {
+      "id": "map-import",
+      "rawKind": "import",
+      "verb": "call",
+      "detailPatternEn": "{{detail}}",
+      "priority": 90
+    },
+    {
+      "id": "map-table-read",
+      "rawKind": "table-read",
+      "verb": "data",
+      "metaDefaults": {
+        "access": "r"
+      },
+      "detailPatternEn": "{{detail}}",
+      "priority": 100
+    },
+    {
+      "id": "map-table-write",
+      "rawKind": "table-write",
+      "verb": "data",
+      "metaDefaults": {
+        "access": "w"
+      },
+      "detailPatternEn": "{{detail}}",
+      "priority": 100
+    },
+    {
+      "id": "map-table-readwrite",
+      "rawKind": "table-readwrite",
+      "verb": "data",
+      "metaDefaults": {
+        "access": "rw"
+      },
+      "detailPatternEn": "{{detail}}",
+      "priority": 95
+    },
+    {
+      "id": "map-binding-r2",
+      "rawKind": "binding-r2",
+      "verb": "store",
+      "metaDefaults": {
+        "resource": "image"
+      },
+      "detailPatternEn": "{{detail}}",
+      "priority": 100
+    },
+    {
+      "id": "map-binding-db",
+      "rawKind": "binding-db",
+      "verb": "data",
+      "metaDefaults": {
+        "access": "rw"
+      },
+      "detailPatternEn": "{{detail}}",
+      "priority": 85
+    },
+    {
+      "id": "map-fetch",
+      "rawKind": "fetch",
+      "verb": "request",
+      "detailPatternEn": "{{detail}}",
+      "priority": 100
+    },
+    {
+      "id": "map-sdk",
+      "rawKind": "sdk",
+      "verb": "call",
+      "detailPatternEn": "{{detail}}",
+      "priority": 100
+    },
+    {
+      "id": "map-deploy",
+      "rawKind": "deploy",
+      "verb": "deploy",
+      "detailPatternEn": "{{detail}}",
+      "priority": 100
+    },
+    {
+      "id": "map-auth",
+      "rawKind": "auth",
+      "verb": "request",
+      "metaDefaults": {
+        "auth": "jwt"
+      },
+      "detailPatternEn": "{{detail}}",
+      "priority": 100
+    },
+    {
+      "id": "map-generic",
+      "rawKind": "generic",
+      "verb": "call",
+      "detailPatternEn": "{{detail}}",
+      "priority": 1
+    }
+  ]
+}

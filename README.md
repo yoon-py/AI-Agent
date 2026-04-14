@@ -1,60 +1,102 @@
-# NestCall (MVP)
+# AgentCall
 
-Twilio 발신 통화 + OpenAI Realtime 음성 대화 + 로컬 SQLite 통화 로그 대시보드 프로토타입입니다.
+**AI 음성 에이전트 기반 다국어 케어콜(전화 상담) 자동화 플랫폼**
 
-## 1) 설치
+AgentCall은 Twilio로 전화를 걸고, OpenAI Realtime 음성 모델이 실시간으로 대화하며, 미리 설정한 체크리스트 질문을 자동으로 수행한 뒤 결과를 구조화해 저장해주는 통화 자동화 대시보드입니다. 요양·헬스케어·고객 확인콜처럼 "정해진 질문을 반복적으로 물어보고 답을 기록해야 하는" 업무를 사람 대신 AI가 처리할 수 있도록 만든 프로젝트입니다.
+
+## 이 프로젝트가 하는 일
+
+- **아웃바운드 자동 통화**: 대시보드에서 연락처를 선택하고 "통화 시작"을 누르면 Twilio를 통해 실제 전화가 걸립니다.
+- **실시간 AI 대화**: OpenAI Realtime API(gpt-realtime)가 통화 상대와 자연스러운 음성 대화를 주고받습니다. 한국어 기본, 다국어 지원.
+- **체크리스트 질문 세트**: 전역 공통 질문 세트 또는 특정 연락처에게만 물어볼 개별 질문 세트를 관리할 수 있습니다.
+- **구조화된 결과 추출**: 통화가 끝나면 전체 트랜스크립트 + 요약 + 체크리스트 항목별 답변이 DB에 자동으로 저장됩니다.
+- **연락처 관리**: 국가 코드 기반 전화번호 정규화, 소프트 삭제(과거 통화 이력 보존) 지원.
+- **다국어 음성**: OpenAI Realtime 보이스 + ElevenLabs 보이스 매핑으로 언어·상황별 목소리를 다르게 쓸 수 있습니다.
+
+## 기술 스택
+
+- **프론트/API**: Next.js (OpenNext on Cloudflare Workers)
+- **실시간 음성 브릿지**: 별도 Cloudflare Worker (`workers/realtime-bridge`) — Twilio Media Streams ↔ OpenAI Realtime WebSocket 중계
+- **DB**: Cloudflare D1 (`AGENTCALL_DB`)
+- **통화**: Twilio Programmable Voice
+- **AI**: OpenAI Realtime API, OpenAI GPT (요약/추출), ElevenLabs (선택)
+
+## 주요 페이지
+
+- `/contacts` — 연락처 관리
+- `/questions` — 체크리스트 질문 세트 관리
+- `/calls` — 통화 실행 및 이력
+- `/summaries` — 통화별 요약·답변 결과
+- `/voices` — 음성 프로필 설정
+
+## 로컬 실행
 
 ```bash
 npm install
-```
-
-## 2) 환경변수 설정
-
-```bash
 cp .env.example .env.local
 ```
 
-`.env.local`에 아래 값을 채우세요.
+대시보드와 realtime worker를 각각 다른 터미널에서 실행:
 
-- `APP_BASE_URL`: Twilio가 접근 가능한 공개 URL (예: ngrok URL)
-- `OPENAI_API_KEY`, `OPENAI_MODEL`
-- `OPENAI_REALTIME_MODEL` (기본: `gpt-realtime`)
-- `OPENAI_REALTIME_VOICE` (기본: `shimmer`)
+```bash
+npm run dev          # Next.js 대시보드
+npm run worker:dev   # Realtime 음성 브릿지
+```
+
+### 필수 환경변수
+
+- `APP_BASE_URL`
+- `CALL_WEBHOOK_BASE_URL` (realtime worker URL)
+- `OPENAI_API_KEY`
 - `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_PHONE_NUMBER`
-- `AGENT_NAME` (선택)
-- `ELEVENLABS_*` 값은 기존 턴 방식 라우트 호환용(옵션)
+- `WORKER_WEBHOOK_SECRET`
 
-## 3) 실행
+### 선택 환경변수
 
-```bash
-npm run dev
-```
+- `OPENAI_REALTIME_VOICE_MAP`
+- `DEFAULT_CALL_LANGUAGE`
+- `ELEVENLABS_*`
 
-## 4) 공개 URL 열기 (로컬 개발시 필수)
-
-예시:
+## D1 마이그레이션
 
 ```bash
-ngrok http 3000
+npm run d1:migrate:remote
 ```
 
-생성된 `https://...` URL을 `APP_BASE_URL`에 넣고 서버 재시작하세요.
+포함된 마이그레이션:
 
-## 5) 사용 방법
+- `0001_init.sql`
+- `0002_contacts_multilingual_soft_delete.sql`
+- `0003_question_sets_questions_answers.sql`
 
-1. 대시보드에서 연락처를 `+82...` 형식(E.164)으로 등록
-2. `이 연락처로 통화 시작` 버튼 클릭
-3. 통화 중에는 `Twilio Media Stream`이 `/media-stream` WebSocket으로 연결되고, 서버가 OpenAI Realtime과 오디오를 양방향 중계
-4. 통화가 끝나면 상태 콜백에서 요약 생성 후 대시보드에 저장
+## 배포
 
-## 구조 요약
+### Next.js Worker (OpenNext)
 
-- `app/api/twilio/voice`: `<Connect><Stream>` TwiML 반환
-- `server.js`: Twilio WebSocket ↔ OpenAI Realtime WebSocket 브리지
-- `app/api/twilio/status`: 통화 상태 저장/종료 후 요약
-- `data/nestcall.db`: 연락처/통화/대화 로그 저장
+```bash
+npm run deploy
+```
 
-## 주의사항
+### Realtime Worker
 
-- 이 코드는 프로토타입이며 Twilio 요청 서명 검증이 생략되어 있습니다.
-- 실제 서비스 전에는 인증/인가, 결제, 동의 플로우, 보안 로그, 민감정보 보호를 추가해야 합니다.
+```bash
+npm run worker:deploy
+```
+
+`workers/realtime-bridge/wrangler.toml`의 아래 값이 배포된 Next URL을 가리키도록 설정해야 합니다:
+
+- `TRANSCRIPT_WEBHOOK_URL`
+- `STATUS_WEBHOOK_URL`
+- `CALL_CONTEXT_URL`
+
+## Twilio Webhook 설정
+
+Twilio 콘솔에서 아래 엔드포인트를 등록합니다 (realtime worker):
+
+- Voice: `https://<realtime-worker>/api/twilio/voice`
+- Status: `https://<realtime-worker>/api/twilio/status`
+
+## 참고
+
+- `TWILIO_SIGNATURE_VALIDATION=false`는 디버깅 용도로만 사용하세요. 운영에서는 웹훅 URL 확정 후 반드시 켜야 합니다.
+- 연락처를 소프트 삭제해도 과거 통화 기록은 유지됩니다.

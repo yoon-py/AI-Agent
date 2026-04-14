@@ -1,11 +1,11 @@
 import {
+  createCall,
+  createContact,
   finalizeCallStatus,
   findCallBySid,
-  getTranscriptForCall,
-  setCallSummary,
   updateCallStatus
 } from "@/lib/db";
-import { summarizeCallTranscript } from "@/lib/openai";
+import { isWorkerWebhookAuthorized } from "@/lib/internal-auth";
 
 const TERMINAL_STATUSES = new Set([
   "completed",
@@ -15,29 +15,37 @@ const TERMINAL_STATUSES = new Set([
   "canceled"
 ]);
 
-async function trySummarizeCall(callSid: string): Promise<void> {
-  const call = findCallBySid(callSid);
-  if (!call || call.summary) {
-    return;
+async function ensureCallExists(callSid: string, status: string) {
+  const existing = await findCallBySid(callSid);
+  if (existing) {
+    return existing;
   }
 
-  const history = getTranscriptForCall(call.id);
-  try {
-    const summary = await summarizeCallTranscript({
-      contactName: call.contact_name,
-      history
-    });
-    setCallSummary(call.id, summary);
-  } catch (error) {
-    console.error("[twilio/status] summary generation failed", {
-      callSid,
-      error: error instanceof Error ? error.message : String(error)
-    });
-    setCallSummary(call.id, "요약 생성 실패: API 상태를 확인해주세요.");
-  }
+  const contactId = await createContact(
+    {
+      name: "Unknown Contact",
+      phone: `unknown-${callSid}`,
+      phoneRaw: callSid.replace(/\D/g, "").slice(0, 14),
+      countryIso2: "KR",
+      dialCode: "+82",
+      preferredLanguage: "ko",
+      note: "Auto-created from status webhook"
+    },
+    { allowExisting: true }
+  );
+
+  await createCall(contactId, callSid, status || "in-progress", {
+    callLanguage: "ko",
+    questionSetId: null
+  });
+  return await findCallBySid(callSid);
 }
 
 export async function POST(request: Request): Promise<Response> {
+  if (!isWorkerWebhookAuthorized(request)) {
+    return Response.json({ ok: false, error: "unauthorized" }, { status: 401 });
+  }
+
   const formData = await request.formData();
 
   const callSid = String(formData.get("CallSid") ?? "");
@@ -47,17 +55,19 @@ export async function POST(request: Request): Promise<Response> {
     return Response.json({ ok: true });
   }
 
+  await ensureCallExists(callSid, callStatus);
+
   if (callStatus) {
-    updateCallStatus(callSid, callStatus);
+    await updateCallStatus(callSid, callStatus);
   }
 
   if (TERMINAL_STATUSES.has(callStatus)) {
-    finalizeCallStatus(callSid, callStatus);
+    await finalizeCallStatus(callSid, callStatus);
   }
 
-  if (callStatus === "completed") {
-    await trySummarizeCall(callSid);
-  }
+  // NOTE: 파이프라인(요약/추출)은 여기서 실행하지 않음.
+  // transcript webhook의 MEDIA_STREAM_DISCONNECTED 이벤트에서 실행하여
+  // 모든 대화 메시지가 저장된 후 파이프라인이 동작하도록 보장함.
 
   return Response.json({ ok: true });
 }

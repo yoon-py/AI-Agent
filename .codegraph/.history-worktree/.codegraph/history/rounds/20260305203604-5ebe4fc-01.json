@@ -1,0 +1,24 @@
+{
+  "roundId": "20260305203604-5ebe4fc-01",
+  "mode": "pr",
+  "createdAt": "2026-03-05T11:36:04.853Z",
+  "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+  "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+  "filesChanged": 0,
+  "changedNodes": 0,
+  "changedEdges": 0,
+  "approvalRequired": false,
+  "approvalReasons": [],
+  "projectName": "NestCall",
+  "generatedAt": "2026-03-05T11:36:04.683Z",
+  "compareContext": {
+    "mode": "pr",
+    "baseRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+    "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+    "computedAt": "2026-03-05T11:36:04.640Z"
+  },
+  "changedNodeIds": [],
+  "newNodeIds": [],
+  "removedNodeIds": [],
+  "nodeChanges": []
+}

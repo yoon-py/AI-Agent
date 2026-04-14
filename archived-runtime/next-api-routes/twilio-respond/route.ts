@@ -45,7 +45,7 @@ export async function POST(request: Request): Promise<Response> {
   const speechResult = String(formData.get("SpeechResult") ?? "").trim();
   const confidence = Number(formData.get("Confidence") ?? 0);
 
-  const call = callSid ? findCallBySid(callSid) : undefined;
+  const call = callSid ? await findCallBySid(callSid) : undefined;
   const response = new twilio.twiml.VoiceResponse();
 
   if (!call) {
@@ -54,15 +54,15 @@ export async function POST(request: Request): Promise<Response> {
     return xmlResponse(response.toString());
   }
 
-  updateCallStatus(callSid, "in-progress");
+  await updateCallStatus(callSid, "in-progress");
 
   let assistantText = "죄송해요, 잘 들리지 않았어요. 한 번만 다시 말씀해주실래요?";
   let shouldHangup = false;
 
   if (speechResult && confidence >= 0.35) {
-    addCallMessage(call.id, "user", speechResult);
+    await addCallMessage(call.id, "user", speechResult);
 
-    const history = getRecentCallMessages(call.id, 14);
+    const history = await getRecentCallMessages(call.id, 14);
     try {
       const generated = await generateAssistantReply({
         contactName: call.contact_name,
@@ -76,14 +76,18 @@ export async function POST(request: Request): Promise<Response> {
       assistantText =
         "지금 답변 연결이 잠시 불안정해요. 조금 천천히 다시 말씀해주실래요?";
       shouldHangup = false;
-      addCallMessage(call.id, "system", "OPENAI_ERROR");
+      await addCallMessage(call.id, "system", "OPENAI_ERROR");
     }
   } else if (speechResult) {
-    addCallMessage(call.id, "system", `LOW_CONFIDENCE:${confidence.toFixed(2)}:${speechResult}`);
+    await addCallMessage(
+      call.id,
+      "system",
+      `LOW_CONFIDENCE:${confidence.toFixed(2)}:${speechResult}`
+    );
     assistantText = "제가 조금 잘못 들었어요. 한 번만 천천히 다시 말씀해주실래요?";
   }
 
-  addCallMessage(call.id, "assistant", assistantText);
+  await addCallMessage(call.id, "assistant", assistantText);
 
   try {
     const audioUrl = await synthesizeToPublicAudio(

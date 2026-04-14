@@ -1,0 +1,844 @@
+{
+  "roundId": "20260305203445-5ebe4fc-01",
+  "mode": "working",
+  "createdAt": "2026-03-05T11:34:45.395Z",
+  "baseRef": "HEAD",
+  "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+  "filesChanged": 46,
+  "changedNodes": 12,
+  "changedEdges": 16,
+  "approvalRequired": true,
+  "approvalReasons": [
+    "Protected node rule violated (7)",
+    "Call edge removals detected (2)",
+    "Generated nodes could not be mapped (7)"
+  ],
+  "projectName": "NestCall",
+  "generatedAt": "2026-03-05T11:34:45.168Z",
+  "compareContext": {
+    "mode": "working",
+    "baseRef": "HEAD",
+    "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+    "computedAt": "2026-03-05T11:34:44.899Z"
+  },
+  "changedNodeIds": [
+    "pkg-app-app",
+    "pkg-app-app-route-api-twilio-respond-route-ts",
+    "pkg-app-app-route-api-twilio-status-route-ts",
+    "pkg-app-app-route-api-twilio-voice-route-ts",
+    "pkg-lib-lib",
+    "pkg-lib-lib-module-db-ts"
+  ],
+  "newNodeIds": [
+    "pkg-app-app-route-api-internal-call-context-route-ts",
+    "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+    "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+    "pkg-app-app-route-api-internal-transcript-route-ts",
+    "pkg-realtime-bridge-workers-realtime-bridge",
+    "pkg-workers-workers"
+  ],
+  "removedNodeIds": [],
+  "nodeChanges": [
+    {
+      "nodeId": "pkg-app-app",
+      "status": "modified",
+      "files": [
+        {
+          "path": "app/api/internal/call-context/route.ts",
+          "status": "untracked",
+          "additions": 95,
+          "deletions": 0
+        },
+        {
+          "path": "app/api/internal/extraction/retry/route.ts",
+          "status": "untracked",
+          "additions": 42,
+          "deletions": 0
+        },
+        {
+          "path": "app/api/internal/questions/reorder/route.ts",
+          "status": "untracked",
+          "additions": 31,
+          "deletions": 0
+        },
+        {
+          "path": "app/api/internal/transcript/route.ts",
+          "status": "untracked",
+          "additions": 65,
+          "deletions": 0
+        },
+        {
+          "path": "app/api/twilio/respond/route.ts",
+          "status": "modified",
+          "additions": 11,
+          "deletions": 7
+        },
+        {
+          "path": "app/api/twilio/status/route.ts",
+          "status": "modified",
+          "additions": 36,
+          "deletions": 26
+        },
+        {
+          "path": "app/api/twilio/voice/route.ts",
+          "status": "modified",
+          "additions": 193,
+          "deletions": 13
+        },
+        {
+          "path": "app/calls/page.tsx",
+          "status": "untracked",
+          "additions": 292,
+          "deletions": 0
+        },
+        {
+          "path": "app/contacts/page.tsx",
+          "status": "untracked",
+          "additions": 258,
+          "deletions": 0
+        },
+        {
+          "path": "app/layout.tsx",
+          "status": "modified",
+          "additions": 93,
+          "deletions": 3
+        },
+        {
+          "path": "app/page.tsx",
+          "status": "modified",
+          "additions": 69,
+          "deletions": 130
+        },
+        {
+          "path": "app/questions/page.tsx",
+          "status": "untracked",
+          "additions": 310,
+          "deletions": 0
+        },
+        {
+          "path": "app/questions/QuestionList.tsx",
+          "status": "untracked",
+          "additions": 210,
+          "deletions": 0
+        },
+        {
+          "path": "app/summaries/page.tsx",
+          "status": "untracked",
+          "additions": 349,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/domain"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/env"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/call-completion"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "zod"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "@/lib/openai"
+        },
+        {
+          "kind": "importDependency",
+          "action": "changed",
+          "value": "@/lib/openai -> @/lib/internal-auth"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/reconcile"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "next/cache"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "next/link"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "next/navigation"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/calls"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/phone"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "@/lib/calls"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "@/lib/reconcile"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "next/cache"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "react"
+        }
+      ],
+      "edgeChanges": [
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        },
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        },
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        },
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-internal-transcript-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        },
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-twilio-respond-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        },
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-twilio-status-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        },
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-twilio-voice-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        }
+      ],
+      "summary": "pkg-app-app: 14 file(s), symbols routes=0, db=0, external=0, imports=18"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/api/internal/call-context/route.ts",
+          "status": "untracked",
+          "additions": 95,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/domain"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/env"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        }
+      ],
+      "edgeChanges": [
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        }
+      ],
+      "summary": "pkg-app-app-route-api-internal-call-context-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=3"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/api/internal/extraction/retry/route.ts",
+          "status": "untracked",
+          "additions": 42,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/call-completion"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "zod"
+        }
+      ],
+      "edgeChanges": [
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        }
+      ],
+      "summary": "pkg-app-app-route-api-internal-extraction-retry-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=4"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/api/internal/questions/reorder/route.ts",
+          "status": "untracked",
+          "additions": 31,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "zod"
+        }
+      ],
+      "edgeChanges": [
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        }
+      ],
+      "summary": "pkg-app-app-route-api-internal-questions-reorder-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=2"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-internal-transcript-route-ts",
+      "status": "new",
+      "files": [
+        {
+          "path": "app/api/internal/transcript/route.ts",
+          "status": "untracked",
+          "additions": 65,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/call-completion"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "zod"
+        }
+      ],
+      "edgeChanges": [
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-internal-transcript-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        }
+      ],
+      "summary": "pkg-app-app-route-api-internal-transcript-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=4"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-twilio-respond-route-ts",
+      "status": "modified",
+      "files": [
+        {
+          "path": "app/api/twilio/respond/route.ts",
+          "status": "modified",
+          "additions": 11,
+          "deletions": 7
+        }
+      ],
+      "symbols": [],
+      "edgeChanges": [
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-twilio-respond-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        },
+        {
+          "source": "pkg-app-app-route-api-twilio-respond-route-ts",
+          "target": "ext-twilio",
+          "type": "call",
+          "meta": {},
+          "action": "removed",
+          "relationId": "call",
+          "displayLabelEn": "call",
+          "detailLabelEn": "Twilio",
+          "label": "sdk"
+        }
+      ],
+      "summary": "pkg-app-app-route-api-twilio-respond-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=0"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-twilio-status-route-ts",
+      "status": "modified",
+      "files": [
+        {
+          "path": "app/api/twilio/status/route.ts",
+          "status": "modified",
+          "additions": 36,
+          "deletions": 26
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/internal-auth"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "@/lib/openai"
+        },
+        {
+          "kind": "importDependency",
+          "action": "changed",
+          "value": "@/lib/openai -> @/lib/internal-auth"
+        }
+      ],
+      "edgeChanges": [
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-twilio-status-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        }
+      ],
+      "summary": "pkg-app-app-route-api-twilio-status-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=3"
+    },
+    {
+      "nodeId": "pkg-app-app-route-api-twilio-voice-route-ts",
+      "status": "modified",
+      "files": [
+        {
+          "path": "app/api/twilio/voice/route.ts",
+          "status": "modified",
+          "additions": 193,
+          "deletions": 13
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/domain"
+        }
+      ],
+      "edgeChanges": [
+        {
+          "source": "pkg-app-app",
+          "target": "pkg-app-app-route-api-twilio-voice-route-ts",
+          "type": "route",
+          "meta": {},
+          "action": "removed",
+          "relationId": "route",
+          "displayLabelEn": "route",
+          "detailLabelEn": "Route Routes",
+          "label": "route"
+        },
+        {
+          "source": "pkg-app-app-route-api-twilio-voice-route-ts",
+          "target": "ext-twilio",
+          "type": "call",
+          "meta": {},
+          "action": "removed",
+          "relationId": "call",
+          "displayLabelEn": "call",
+          "detailLabelEn": "Twilio",
+          "label": "sdk"
+        }
+      ],
+      "summary": "pkg-app-app-route-api-twilio-voice-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=1"
+    },
+    {
+      "nodeId": "pkg-lib-lib",
+      "status": "modified",
+      "files": [
+        {
+          "path": "lib/call-completion.ts",
+          "status": "untracked",
+          "additions": 128,
+          "deletions": 0
+        },
+        {
+          "path": "lib/calls.ts",
+          "status": "modified",
+          "additions": 62,
+          "deletions": 16
+        },
+        {
+          "path": "lib/db.ts",
+          "status": "modified",
+          "additions": 1743,
+          "deletions": 114
+        },
+        {
+          "path": "lib/domain.ts",
+          "status": "untracked",
+          "additions": 88,
+          "deletions": 0
+        },
+        {
+          "path": "lib/env.ts",
+          "status": "modified",
+          "additions": 43,
+          "deletions": 6
+        },
+        {
+          "path": "lib/internal-auth.ts",
+          "status": "untracked",
+          "additions": 26,
+          "deletions": 0
+        },
+        {
+          "path": "lib/openai.ts",
+          "status": "modified",
+          "additions": 320,
+          "deletions": 55
+        },
+        {
+          "path": "lib/phone.ts",
+          "status": "untracked",
+          "additions": 40,
+          "deletions": 0
+        },
+        {
+          "path": "lib/reconcile.ts",
+          "status": "modified",
+          "additions": 13,
+          "deletions": 25
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/domain"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "@/lib/db"
+        },
+        {
+          "kind": "importDependency",
+          "action": "changed",
+          "value": "@/lib/db -> @/lib/domain"
+        },
+        {
+          "kind": "dbTable",
+          "action": "removed",
+          "value": "sqlite"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@opennextjs/cloudflare"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "better-sqlite3"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "node:fs"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "node:path"
+        },
+        {
+          "kind": "importDependency",
+          "action": "changed",
+          "value": "better-sqlite3, node:fs, node:path -> @/lib/domain, @opennextjs/cloudflare"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/env"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "node:crypto"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "libphonenumber-js"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/call-completion"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "@/lib/openai"
+        },
+        {
+          "kind": "importDependency",
+          "action": "changed",
+          "value": "@/lib/openai -> @/lib/call-completion"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-lib-lib: 9 file(s), symbols routes=0, db=1, external=0, imports=15"
+    },
+    {
+      "nodeId": "pkg-lib-lib-module-db-ts",
+      "status": "modified",
+      "files": [
+        {
+          "path": "lib/db.ts",
+          "status": "modified",
+          "additions": 1743,
+          "deletions": 114
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "dbTable",
+          "action": "removed",
+          "value": "sqlite"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@/lib/domain"
+        },
+        {
+          "kind": "importDependency",
+          "action": "added",
+          "value": "@opennextjs/cloudflare"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "better-sqlite3"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "node:fs"
+        },
+        {
+          "kind": "importDependency",
+          "action": "removed",
+          "value": "node:path"
+        },
+        {
+          "kind": "importDependency",
+          "action": "changed",
+          "value": "better-sqlite3, node:fs, node:path -> @/lib/domain, @opennextjs/cloudflare"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-lib-lib-module-db-ts: 1 file(s), symbols routes=0, db=1, external=0, imports=6"
+    },
+    {
+      "nodeId": "pkg-realtime-bridge-workers-realtime-bridge",
+      "status": "new",
+      "files": [
+        {
+          "path": "workers/realtime-bridge/src/index.ts",
+          "status": "untracked",
+          "additions": 1031,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "externalService",
+          "action": "added",
+          "value": "OpenAI"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-realtime-bridge-workers-realtime-bridge: 1 file(s), symbols routes=0, db=0, external=1, imports=0"
+    },
+    {
+      "nodeId": "pkg-workers-workers",
+      "status": "new",
+      "files": [
+        {
+          "path": "workers/realtime-bridge/src/index.ts",
+          "status": "untracked",
+          "additions": 1031,
+          "deletions": 0
+        }
+      ],
+      "symbols": [
+        {
+          "kind": "externalService",
+          "action": "added",
+          "value": "OpenAI"
+        }
+      ],
+      "edgeChanges": [],
+      "summary": "pkg-workers-workers: 1 file(s), symbols routes=0, db=0, external=1, imports=0"
+    }
+  ]
+}

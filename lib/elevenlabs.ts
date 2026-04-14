@@ -47,6 +47,7 @@ export async function synthesizeToPublicAudio(
     }
 
     const audioBuffer = Buffer.from(await response.arrayBuffer());
+
     const audioDir = path.join(process.cwd(), "public", "audio");
     await mkdir(audioDir, { recursive: true });
 

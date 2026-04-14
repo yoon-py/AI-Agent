@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-03-05T13:12:28.804Z",
+  "ontologyVersion": "1.1.0",
+  "issueCount": 10,
+  "protectedNodeViolations": [
+    "pkg-workers-workers"
+  ],
+  "approvalRequired": true,
+  "approvalReasons": [
+    "Protected node rule violated (1)"
+  ],
+  "autoApplyEligible": false,
+  "criticalSignals": {
+    "protectedNodeViolationCount": 1,
+    "removedNodeCount": 0,
+    "removedDataEdgeCount": 0,
+    "removedCallEdgeCount": 0,
+    "proposedEdgeChangeCount": 12,
+    "unmappedFileCount": 8,
+    "unmappedGeneratedNodeIssueCount": 0
+  }
+}

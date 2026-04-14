@@ -1,0 +1,1898 @@
+{
+  "projectName": "NestCall",
+  "generatedAt": "2026-03-05T13:12:28.791Z",
+  "nodes": [
+    {
+      "id": "pkg-app-app",
+      "label": "App Service",
+      "type": "service",
+      "concept": "package",
+      "drilldownEligible": true,
+      "description": "App Service (app, unknown)",
+      "file": "app/package.json",
+      "position": {
+        "x": 120,
+        "y": 80
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "App Service (app, unknown)",
+        "responsibilities": [
+          "Package/module orchestration",
+          "Service role: App Service",
+          "Frameworks: unknown",
+          "Scanned files: 14"
+        ],
+        "dependsOn": [
+          {
+            "id": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "label": "Call Context API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Call Context API",
+            "meta": {}
+          }
+        ],
+        "affectedBy": [],
+        "potentialRisk": "Package-level behavior depends on connected modules and services.",
+        "riskLevel": "none",
+        "apiRoutes": [
+          "GET /api/internal/call-context",
+          "GET /api/twilio/voice",
+          "POST /api/internal/extraction/retry",
+          "POST /api/internal/questions/reorder",
+          "POST /api/internal/transcript",
+          "POST /api/twilio/respond",
+          "POST /api/twilio/status",
+          "POST /api/twilio/voice"
+        ]
+      },
+      "changed": true,
+      "changeDescription": "pkg-app-app: 10 file(s), symbols routes=0, db=0, external=0, imports=13"
+    },
+    {
+      "id": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "label": "Call Context API",
+      "type": "service",
+      "concept": "route",
+      "parentId": "pkg-app-app",
+      "drilldownEligible": true,
+      "description": "Route handlers detected in app",
+      "file": "app/api/internal/call-context/route.ts",
+      "position": {
+        "x": 580,
+        "y": 80
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Call Context API in app",
+        "responsibilities": [
+          "Route entrypoints",
+          "HTTP method/path handling",
+          "Primary domain: Call Context"
+        ],
+        "dependsOn": [
+          {
+            "id": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+            "label": "Extraction Retry API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Extraction Retry API",
+            "meta": {}
+          },
+          {
+            "id": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+            "label": "Question Ordering API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Question Ordering API",
+            "meta": {}
+          },
+          {
+            "id": "pkg-app-app-route-api-internal-transcript-route-ts",
+            "label": "Transcript Ingestion API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Transcript Ingestion API",
+            "meta": {}
+          },
+          {
+            "id": "pkg-app-app-route-api-twilio-respond-route-ts",
+            "label": "Twilio Response Webhook",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Response Webhook",
+            "meta": {}
+          },
+          {
+            "id": "pkg-app-app-route-api-twilio-status-route-ts",
+            "label": "Twilio Status Webhook",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Status Webhook",
+            "meta": {}
+          },
+          {
+            "id": "pkg-app-app-route-api-twilio-voice-route-ts",
+            "label": "Twilio Voice Webhook",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Voice Webhook",
+            "meta": {}
+          }
+        ],
+        "affectedBy": [
+          {
+            "id": "pkg-app-app",
+            "label": "App Service",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Call Context API",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none",
+        "apiRoutes": [
+          "GET /api/internal/call-context"
+        ]
+      },
+      "changed": true,
+      "changeDescription": "pkg-app-app-route-api-internal-call-context-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=3"
+    },
+    {
+      "id": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+      "label": "Extraction Retry API",
+      "type": "service",
+      "concept": "route",
+      "parentId": "pkg-app-app",
+      "drilldownEligible": true,
+      "description": "Route handlers detected in app",
+      "file": "app/api/internal/extraction/retry/route.ts",
+      "position": {
+        "x": 860,
+        "y": 80
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Extraction Retry API in app",
+        "responsibilities": [
+          "Route entrypoints",
+          "HTTP method/path handling",
+          "Primary domain: Extraction, Retry"
+        ],
+        "dependsOn": [],
+        "affectedBy": [
+          {
+            "id": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "label": "Call Context API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Extraction Retry API",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none",
+        "apiRoutes": [
+          "POST /api/internal/extraction/retry"
+        ]
+      },
+      "changed": true,
+      "changeDescription": "pkg-app-app-route-api-internal-extraction-retry-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=4"
+    },
+    {
+      "id": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+      "label": "Question Ordering API",
+      "type": "service",
+      "concept": "route",
+      "parentId": "pkg-app-app",
+      "drilldownEligible": true,
+      "description": "Route handlers detected in app",
+      "file": "app/api/internal/questions/reorder/route.ts",
+      "position": {
+        "x": 1140,
+        "y": 80
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Question Ordering API in app",
+        "responsibilities": [
+          "Route entrypoints",
+          "HTTP method/path handling",
+          "Primary domain: Questions, Reorder"
+        ],
+        "dependsOn": [],
+        "affectedBy": [
+          {
+            "id": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "label": "Call Context API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Question Ordering API",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none",
+        "apiRoutes": [
+          "POST /api/internal/questions/reorder"
+        ]
+      },
+      "changed": true,
+      "changeDescription": "pkg-app-app-route-api-internal-questions-reorder-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=2"
+    },
+    {
+      "id": "pkg-app-app-route-api-internal-transcript-route-ts",
+      "label": "Transcript Ingestion API",
+      "type": "service",
+      "concept": "route",
+      "parentId": "pkg-app-app",
+      "drilldownEligible": true,
+      "description": "Route handlers detected in app",
+      "file": "app/api/internal/transcript/route.ts",
+      "position": {
+        "x": 1420,
+        "y": 80
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Transcript Ingestion API in app",
+        "responsibilities": [
+          "Route entrypoints",
+          "HTTP method/path handling",
+          "Primary domain: Transcript"
+        ],
+        "dependsOn": [],
+        "affectedBy": [
+          {
+            "id": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "label": "Call Context API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Transcript Ingestion API",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none",
+        "apiRoutes": [
+          "POST /api/internal/transcript"
+        ]
+      },
+      "changed": true,
+      "changeDescription": "pkg-app-app-route-api-internal-transcript-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=4"
+    },
+    {
+      "id": "pkg-app-app-route-api-twilio-respond-route-ts",
+      "label": "Twilio Response Webhook",
+      "type": "service",
+      "concept": "route",
+      "parentId": "pkg-app-app",
+      "drilldownEligible": true,
+      "description": "Route handlers detected in app",
+      "file": "app/api/twilio/respond/route.ts",
+      "position": {
+        "x": 1700,
+        "y": 80
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Twilio Response Webhook in app",
+        "responsibilities": [
+          "Route entrypoints",
+          "HTTP method/path handling",
+          "Primary domain: Twilio, Respond"
+        ],
+        "dependsOn": [
+          {
+            "id": "ext-twilio",
+            "label": "Twilio",
+            "edgeType": "call",
+            "relationId": "call",
+            "displayLabelEn": "call",
+            "detailLabelEn": "Twilio",
+            "meta": {}
+          }
+        ],
+        "affectedBy": [
+          {
+            "id": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "label": "Call Context API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Response Webhook",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none",
+        "apiRoutes": [
+          "POST /api/twilio/respond"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": "pkg-app-app-route-api-twilio-status-route-ts",
+      "label": "Twilio Status Webhook",
+      "type": "service",
+      "concept": "route",
+      "parentId": "pkg-app-app",
+      "drilldownEligible": true,
+      "description": "Route handlers detected in app",
+      "file": "app/api/twilio/status/route.ts",
+      "position": {
+        "x": 1980,
+        "y": 80
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Twilio Status Webhook in app",
+        "responsibilities": [
+          "Route entrypoints",
+          "HTTP method/path handling",
+          "Primary domain: Twilio, Status"
+        ],
+        "dependsOn": [],
+        "affectedBy": [
+          {
+            "id": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "label": "Call Context API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Status Webhook",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none",
+        "apiRoutes": [
+          "POST /api/twilio/status"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": "pkg-app-app-route-api-twilio-voice-route-ts",
+      "label": "Twilio Voice Webhook",
+      "type": "service",
+      "concept": "route",
+      "parentId": "pkg-app-app",
+      "drilldownEligible": true,
+      "description": "Route handlers detected in app",
+      "file": "app/api/twilio/voice/route.ts",
+      "position": {
+        "x": 2260,
+        "y": 80
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Twilio Voice Webhook in app",
+        "responsibilities": [
+          "Route entrypoints",
+          "HTTP method/path handling",
+          "Primary domain: Twilio, Voice"
+        ],
+        "dependsOn": [
+          {
+            "id": "ext-twilio",
+            "label": "Twilio",
+            "edgeType": "call",
+            "relationId": "call",
+            "displayLabelEn": "call",
+            "detailLabelEn": "Twilio",
+            "meta": {}
+          }
+        ],
+        "affectedBy": [
+          {
+            "id": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "label": "Call Context API",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Voice Webhook",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none",
+        "apiRoutes": [
+          "GET /api/twilio/voice",
+          "POST /api/twilio/voice"
+        ]
+      },
+      "changed": false
+    },
+    {
+      "id": "ext-twilio",
+      "label": "Twilio",
+      "type": "external",
+      "concept": "external_api",
+      "drilldownEligible": true,
+      "description": "Twilio integration detected from import or fetch usage.",
+      "position": {
+        "x": 1580,
+        "y": 178
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Twilio integration detected",
+        "responsibilities": [
+          "External API/service integration"
+        ],
+        "dependsOn": [],
+        "affectedBy": [
+          {
+            "id": "pkg-app-app-route-api-twilio-respond-route-ts",
+            "label": "Twilio Response Webhook",
+            "edgeType": "call",
+            "relationId": "call",
+            "displayLabelEn": "call",
+            "detailLabelEn": "Twilio",
+            "meta": {}
+          },
+          {
+            "id": "pkg-app-app-route-api-twilio-voice-route-ts",
+            "label": "Twilio Voice Webhook",
+            "edgeType": "call",
+            "relationId": "call",
+            "displayLabelEn": "call",
+            "detailLabelEn": "Twilio",
+            "meta": {}
+          },
+          {
+            "id": "pkg-lib-lib",
+            "label": "Core Library",
+            "edgeType": "call",
+            "relationId": "call",
+            "displayLabelEn": "call",
+            "detailLabelEn": "Twilio",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none"
+      },
+      "changed": false
+    },
+    {
+      "id": "pkg-lib-lib",
+      "label": "Core Library",
+      "type": "service",
+      "concept": "package",
+      "drilldownEligible": true,
+      "description": "Core Library (lib, unknown)",
+      "file": "lib/package.json",
+      "position": {
+        "x": 120,
+        "y": 270
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Core Library (lib, unknown)",
+        "responsibilities": [
+          "Package/module orchestration",
+          "Service role: Core Library",
+          "Frameworks: unknown",
+          "Scanned files: 11"
+        ],
+        "dependsOn": [
+          {
+            "id": "pkg-lib-lib-module-db-ts",
+            "label": "DB Adapter",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "DB Adapter",
+            "meta": {}
+          },
+          {
+            "id": "ext-api-elevenlabs-io",
+            "label": "api.elevenlabs.io",
+            "edgeType": "request",
+            "relationId": "request",
+            "displayLabelEn": "request",
+            "detailLabelEn": "api.elevenlabs.io",
+            "meta": {}
+          },
+          {
+            "id": "ext-openai",
+            "label": "OpenAI",
+            "edgeType": "call",
+            "relationId": "call",
+            "displayLabelEn": "call",
+            "detailLabelEn": "OpenAI",
+            "meta": {}
+          },
+          {
+            "id": "ext-openai",
+            "label": "OpenAI",
+            "edgeType": "request",
+            "relationId": "request",
+            "displayLabelEn": "request",
+            "detailLabelEn": "OpenAI",
+            "meta": {}
+          },
+          {
+            "id": "ext-twilio",
+            "label": "Twilio",
+            "edgeType": "call",
+            "relationId": "call",
+            "displayLabelEn": "call",
+            "detailLabelEn": "Twilio",
+            "meta": {}
+          }
+        ],
+        "affectedBy": [],
+        "potentialRisk": "Package-level behavior depends on connected modules and services.",
+        "riskLevel": "none"
+      },
+      "changed": true,
+      "changeDescription": "pkg-lib-lib: 4 file(s), symbols routes=0, db=0, external=0, imports=5"
+    },
+    {
+      "id": "pkg-lib-lib-module-db-ts",
+      "label": "DB Adapter",
+      "type": "service",
+      "concept": "module",
+      "parentId": "pkg-lib-lib",
+      "drilldownEligible": true,
+      "description": "DB Adapter detected in lib",
+      "file": "lib/db.ts",
+      "position": {
+        "x": 580,
+        "y": 270
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Detected service module in lib",
+        "responsibilities": [
+          "Module-level orchestration"
+        ],
+        "dependsOn": [],
+        "affectedBy": [
+          {
+            "id": "pkg-lib-lib",
+            "label": "Core Library",
+            "edgeType": "route",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "DB Adapter",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none"
+      },
+      "changed": true,
+      "changeDescription": "pkg-lib-lib-module-db-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=0"
+    },
+    {
+      "id": "ext-api-elevenlabs-io",
+      "label": "api.elevenlabs.io",
+      "type": "external",
+      "concept": "external_api",
+      "drilldownEligible": true,
+      "description": "api.elevenlabs.io integration detected from import or fetch usage.",
+      "position": {
+        "x": 1580,
+        "y": 286
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "api.elevenlabs.io integration detected",
+        "responsibilities": [
+          "External API/service integration"
+        ],
+        "dependsOn": [],
+        "affectedBy": [
+          {
+            "id": "pkg-lib-lib",
+            "label": "Core Library",
+            "edgeType": "request",
+            "relationId": "request",
+            "displayLabelEn": "request",
+            "detailLabelEn": "api.elevenlabs.io",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none"
+      },
+      "changed": false
+    },
+    {
+      "id": "ext-openai",
+      "label": "OpenAI",
+      "type": "external",
+      "concept": "external_api",
+      "drilldownEligible": true,
+      "description": "OpenAI integration detected from import or fetch usage.",
+      "position": {
+        "x": 1580,
+        "y": 405
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "OpenAI integration detected",
+        "responsibilities": [
+          "External API/service integration"
+        ],
+        "dependsOn": [],
+        "affectedBy": [
+          {
+            "id": "pkg-lib-lib",
+            "label": "Core Library",
+            "edgeType": "call",
+            "relationId": "call",
+            "displayLabelEn": "call",
+            "detailLabelEn": "OpenAI",
+            "meta": {}
+          },
+          {
+            "id": "pkg-lib-lib",
+            "label": "Core Library",
+            "edgeType": "request",
+            "relationId": "request",
+            "displayLabelEn": "request",
+            "detailLabelEn": "OpenAI",
+            "meta": {}
+          },
+          {
+            "id": "pkg-realtime-bridge-workers-realtime-bridge",
+            "label": "Realtime Bridge Worker",
+            "edgeType": "request",
+            "relationId": "request",
+            "displayLabelEn": "request",
+            "detailLabelEn": "OpenAI",
+            "meta": {}
+          }
+        ],
+        "potentialRisk": "none",
+        "riskLevel": "none"
+      },
+      "changed": false
+    },
+    {
+      "id": "pkg-realtime-bridge-workers-realtime-bridge",
+      "label": "Realtime Bridge Worker",
+      "type": "service",
+      "concept": "package",
+      "drilldownEligible": true,
+      "description": "Realtime Bridge Worker (realtime-bridge, cloudflare-workers)",
+      "file": "workers/realtime-bridge/package.json",
+      "position": {
+        "x": 120,
+        "y": 460
+      },
+      "riskLevel": "none",
+      "detail": {
+        "summary": "Realtime Bridge Worker (realtime-bridge, cloudflare-workers)",
+        "responsibilities": [
+          "Package/module orchestration",
+          "Service role: Realtime Bridge Worker",
+          "Frameworks: cloudflare-workers",
+          "Scanned files: 1"
+        ],
+        "dependsOn": [
+          {
+            "id": "ext-openai",
+            "label": "OpenAI",
+            "edgeType": "request",
+            "relationId": "request",
+            "displayLabelEn": "request",
+            "detailLabelEn": "OpenAI",
+            "meta": {}
+          }
+        ],
+        "affectedBy": [],
+        "potentialRisk": "Package-level behavior depends on connected modules and services.",
+        "riskLevel": "none"
+      },
+      "changed": true,
+      "changeDescription": "pkg-realtime-bridge-workers-realtime-bridge: 7 file(s), symbols routes=0, db=0, external=1, imports=0"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-pkg-app-app-pkg-app-app-route-api-internal-call-context-route-ts-route-route",
+      "source": "pkg-app-app",
+      "target": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "type": "route",
+      "meta": {},
+      "relationId": "route",
+      "displayLabelEn": "route",
+      "detailLabelEn": "Call Context API",
+      "label": "route",
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "file": "app/api/internal/call-context/route.ts",
+          "detector": "routeDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-app-app-route-api-internal-call-context-route-ts-pkg-app-app-route-api-internal-extraction-retry-route-ts-route-route",
+      "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "target": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+      "type": "route",
+      "meta": {},
+      "relationId": "route",
+      "displayLabelEn": "route",
+      "detailLabelEn": "Extraction Retry API",
+      "label": "route",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "file": "app/api/internal/extraction/retry/route.ts",
+          "detector": "routeDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-app-app-route-api-internal-call-context-route-ts-pkg-app-app-route-api-internal-questions-reorder-route-ts-route-route",
+      "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "target": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+      "type": "route",
+      "meta": {},
+      "relationId": "route",
+      "displayLabelEn": "route",
+      "detailLabelEn": "Question Ordering API",
+      "label": "route",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "file": "app/api/internal/questions/reorder/route.ts",
+          "detector": "routeDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-app-app-route-api-internal-call-context-route-ts-pkg-app-app-route-api-internal-transcript-route-ts-route-route",
+      "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "target": "pkg-app-app-route-api-internal-transcript-route-ts",
+      "type": "route",
+      "meta": {},
+      "relationId": "route",
+      "displayLabelEn": "route",
+      "detailLabelEn": "Transcript Ingestion API",
+      "label": "route",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "file": "app/api/internal/transcript/route.ts",
+          "detector": "routeDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-app-app-route-api-internal-call-context-route-ts-pkg-app-app-route-api-twilio-respond-route-ts-route-route",
+      "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "target": "pkg-app-app-route-api-twilio-respond-route-ts",
+      "type": "route",
+      "meta": {},
+      "relationId": "route",
+      "displayLabelEn": "route",
+      "detailLabelEn": "Twilio Response Webhook",
+      "label": "route",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "file": "app/api/twilio/respond/route.ts",
+          "detector": "routeDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-app-app-route-api-internal-call-context-route-ts-pkg-app-app-route-api-twilio-status-route-ts-route-route",
+      "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "target": "pkg-app-app-route-api-twilio-status-route-ts",
+      "type": "route",
+      "meta": {},
+      "relationId": "route",
+      "displayLabelEn": "route",
+      "detailLabelEn": "Twilio Status Webhook",
+      "label": "route",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "file": "app/api/twilio/status/route.ts",
+          "detector": "routeDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-app-app-route-api-internal-call-context-route-ts-pkg-app-app-route-api-twilio-voice-route-ts-route-route",
+      "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+      "target": "pkg-app-app-route-api-twilio-voice-route-ts",
+      "type": "route",
+      "meta": {},
+      "relationId": "route",
+      "displayLabelEn": "route",
+      "detailLabelEn": "Twilio Voice Webhook",
+      "label": "route",
+      "confidence": 0.92,
+      "evidence": [
+        {
+          "file": "app/api/twilio/voice/route.ts",
+          "detector": "routeDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-app-app-route-api-twilio-respond-route-ts-ext-twilio-call-call",
+      "source": "pkg-app-app-route-api-twilio-respond-route-ts",
+      "target": "ext-twilio",
+      "type": "call",
+      "meta": {},
+      "relationId": "call",
+      "displayLabelEn": "call",
+      "detailLabelEn": "Twilio",
+      "label": "sdk",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/api/twilio/respond/route.ts",
+          "detector": "externalDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-app-app-route-api-twilio-voice-route-ts-ext-twilio-call-call",
+      "source": "pkg-app-app-route-api-twilio-voice-route-ts",
+      "target": "ext-twilio",
+      "type": "call",
+      "meta": {},
+      "relationId": "call",
+      "displayLabelEn": "call",
+      "detailLabelEn": "Twilio",
+      "label": "sdk",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/api/twilio/voice/route.ts",
+          "detector": "externalDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-lib-lib-pkg-lib-lib-module-db-ts-route-route",
+      "source": "pkg-lib-lib",
+      "target": "pkg-lib-lib-module-db-ts",
+      "type": "route",
+      "meta": {},
+      "relationId": "route",
+      "displayLabelEn": "route",
+      "detailLabelEn": "DB Adapter",
+      "label": "module",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "lib/db.ts",
+          "detector": "moduleParser"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-lib-lib-ext-api-elevenlabs-io-request-request",
+      "source": "pkg-lib-lib",
+      "target": "ext-api-elevenlabs-io",
+      "type": "request",
+      "meta": {},
+      "relationId": "request",
+      "displayLabelEn": "request",
+      "detailLabelEn": "api.elevenlabs.io",
+      "label": "fetch",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "lib/elevenlabs.ts",
+          "detector": "externalDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-lib-lib-ext-openai-call-call",
+      "source": "pkg-lib-lib",
+      "target": "ext-openai",
+      "type": "call",
+      "meta": {},
+      "relationId": "call",
+      "displayLabelEn": "call",
+      "detailLabelEn": "OpenAI",
+      "label": "sdk",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "lib/openai.ts",
+          "detector": "externalDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-lib-lib-ext-openai-request-request",
+      "source": "pkg-lib-lib",
+      "target": "ext-openai",
+      "type": "request",
+      "meta": {},
+      "relationId": "request",
+      "displayLabelEn": "request",
+      "detailLabelEn": "OpenAI",
+      "label": "fetch",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "lib/openai.ts",
+          "detector": "externalDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-lib-lib-ext-twilio-call-call",
+      "source": "pkg-lib-lib",
+      "target": "ext-twilio",
+      "type": "call",
+      "meta": {},
+      "relationId": "call",
+      "displayLabelEn": "call",
+      "detailLabelEn": "Twilio",
+      "label": "sdk",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "lib/twilio.ts",
+          "detector": "externalDetector"
+        }
+      ]
+    },
+    {
+      "id": "e-pkg-realtime-bridge-workers-realtime-bridge-ext-openai-request-request",
+      "source": "pkg-realtime-bridge-workers-realtime-bridge",
+      "target": "ext-openai",
+      "type": "request",
+      "meta": {},
+      "relationId": "request",
+      "displayLabelEn": "request",
+      "detailLabelEn": "OpenAI",
+      "label": "fetch",
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "workers/realtime-bridge/src/index.ts",
+          "detector": "externalDetector"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow-pkg-app-app",
+      "name": "App Service Flow",
+      "description": "Automatically detected execution/data flow around App Service.",
+      "steps": [
+        {
+          "id": "step-pkg-app-app-1",
+          "sourceId": "pkg-app-app",
+          "targetId": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "relationId": "route",
+          "direction": "forward",
+          "order": 1,
+          "condition": "all"
+        }
+      ],
+      "nodeIds": [
+        "pkg-app-app",
+        "pkg-app-app-route-api-internal-call-context-route-ts"
+      ],
+      "color": "#4f9cf9"
+    },
+    {
+      "id": "flow-pkg-app-app-route-api-internal-call-context-route-ts",
+      "name": "Call Context API Flow",
+      "description": "Automatically detected execution/data flow around Call Context API.",
+      "steps": [
+        {
+          "id": "step-pkg-app-app-route-api-internal-call-context-route-ts-1",
+          "sourceId": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "targetId": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+          "relationId": "route",
+          "direction": "forward",
+          "order": 1,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-app-app-route-api-internal-call-context-route-ts-2",
+          "sourceId": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "targetId": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+          "relationId": "route",
+          "direction": "forward",
+          "order": 2,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-app-app-route-api-internal-call-context-route-ts-3",
+          "sourceId": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "targetId": "pkg-app-app-route-api-internal-transcript-route-ts",
+          "relationId": "route",
+          "direction": "forward",
+          "order": 3,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-app-app-route-api-internal-call-context-route-ts-4",
+          "sourceId": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "targetId": "pkg-app-app-route-api-twilio-respond-route-ts",
+          "relationId": "route",
+          "direction": "forward",
+          "order": 4,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-app-app-route-api-internal-call-context-route-ts-5",
+          "sourceId": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "targetId": "pkg-app-app-route-api-twilio-status-route-ts",
+          "relationId": "route",
+          "direction": "forward",
+          "order": 5,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-app-app-route-api-internal-call-context-route-ts-6",
+          "sourceId": "pkg-app-app-route-api-internal-call-context-route-ts",
+          "targetId": "pkg-app-app-route-api-twilio-voice-route-ts",
+          "relationId": "route",
+          "direction": "forward",
+          "order": 6,
+          "condition": "all"
+        }
+      ],
+      "nodeIds": [
+        "pkg-app-app-route-api-internal-call-context-route-ts",
+        "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+        "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+        "pkg-app-app-route-api-internal-transcript-route-ts",
+        "pkg-app-app-route-api-twilio-respond-route-ts",
+        "pkg-app-app-route-api-twilio-status-route-ts",
+        "pkg-app-app-route-api-twilio-voice-route-ts"
+      ],
+      "color": "#f97316"
+    },
+    {
+      "id": "flow-pkg-app-app-route-api-twilio-respond-route-ts",
+      "name": "Twilio Response Webhook Flow",
+      "description": "Automatically detected execution/data flow around Twilio Response Webhook.",
+      "steps": [
+        {
+          "id": "step-pkg-app-app-route-api-twilio-respond-route-ts-1",
+          "sourceId": "pkg-app-app-route-api-twilio-respond-route-ts",
+          "targetId": "ext-twilio",
+          "relationId": "call",
+          "direction": "forward",
+          "order": 1,
+          "condition": "all"
+        }
+      ],
+      "nodeIds": [
+        "pkg-app-app-route-api-twilio-respond-route-ts",
+        "ext-twilio"
+      ],
+      "color": "#ec4899"
+    },
+    {
+      "id": "flow-pkg-app-app-route-api-twilio-voice-route-ts",
+      "name": "Twilio Voice Webhook Flow",
+      "description": "Automatically detected execution/data flow around Twilio Voice Webhook.",
+      "steps": [
+        {
+          "id": "step-pkg-app-app-route-api-twilio-voice-route-ts-1",
+          "sourceId": "pkg-app-app-route-api-twilio-voice-route-ts",
+          "targetId": "ext-twilio",
+          "relationId": "call",
+          "direction": "forward",
+          "order": 1,
+          "condition": "all"
+        }
+      ],
+      "nodeIds": [
+        "pkg-app-app-route-api-twilio-voice-route-ts",
+        "ext-twilio"
+      ],
+      "color": "#4f9cf9"
+    },
+    {
+      "id": "flow-pkg-lib-lib",
+      "name": "Core Library Flow",
+      "description": "Automatically detected execution/data flow around Core Library.",
+      "steps": [
+        {
+          "id": "step-pkg-lib-lib-1",
+          "sourceId": "pkg-lib-lib",
+          "targetId": "pkg-lib-lib-module-db-ts",
+          "relationId": "route",
+          "direction": "forward",
+          "order": 1,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-lib-lib-2",
+          "sourceId": "pkg-lib-lib",
+          "targetId": "ext-api-elevenlabs-io",
+          "relationId": "request",
+          "direction": "forward",
+          "order": 2,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-lib-lib-3",
+          "sourceId": "pkg-lib-lib",
+          "targetId": "ext-openai",
+          "relationId": "call",
+          "direction": "forward",
+          "order": 3,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-lib-lib-4",
+          "sourceId": "pkg-lib-lib",
+          "targetId": "ext-openai",
+          "relationId": "request",
+          "direction": "forward",
+          "order": 4,
+          "condition": "all"
+        },
+        {
+          "id": "step-pkg-lib-lib-5",
+          "sourceId": "pkg-lib-lib",
+          "targetId": "ext-twilio",
+          "relationId": "call",
+          "direction": "forward",
+          "order": 5,
+          "condition": "all"
+        }
+      ],
+      "nodeIds": [
+        "pkg-lib-lib",
+        "pkg-lib-lib-module-db-ts",
+        "ext-api-elevenlabs-io",
+        "ext-openai",
+        "ext-twilio"
+      ],
+      "color": "#f97316"
+    },
+    {
+      "id": "flow-pkg-realtime-bridge-workers-realtime-bridge",
+      "name": "Realtime Bridge Worker Flow",
+      "description": "Automatically detected execution/data flow around Realtime Bridge Worker.",
+      "steps": [
+        {
+          "id": "step-pkg-realtime-bridge-workers-realtime-bridge-1",
+          "sourceId": "pkg-realtime-bridge-workers-realtime-bridge",
+          "targetId": "ext-openai",
+          "relationId": "request",
+          "direction": "forward",
+          "order": 1,
+          "condition": "all"
+        }
+      ],
+      "nodeIds": [
+        "pkg-realtime-bridge-workers-realtime-bridge",
+        "ext-openai"
+      ],
+      "color": "#22c55e"
+    }
+  ],
+  "changeset": {
+    "prNumber": 0,
+    "prTitle": "Working changes since 5b33f1f378fa0b7a93c76676e3dcf3df7f4be7f0",
+    "changedNodeIds": [],
+    "newNodeIds": [
+      "pkg-app-app",
+      "pkg-app-app-route-api-internal-call-context-route-ts",
+      "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+      "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+      "pkg-app-app-route-api-internal-transcript-route-ts",
+      "pkg-lib-lib",
+      "pkg-lib-lib-module-db-ts",
+      "pkg-realtime-bridge-workers-realtime-bridge"
+    ],
+    "removedNodeIds": [],
+    "nodeChanges": [
+      {
+        "nodeId": "pkg-app-app",
+        "status": "new",
+        "files": [
+          {
+            "path": "app/.DS_Store",
+            "status": "untracked",
+            "additions": 5,
+            "deletions": 0
+          },
+          {
+            "path": "app/api/internal/call-context/route.ts",
+            "status": "untracked",
+            "additions": 95,
+            "deletions": 0
+          },
+          {
+            "path": "app/api/internal/extraction/retry/route.ts",
+            "status": "untracked",
+            "additions": 42,
+            "deletions": 0
+          },
+          {
+            "path": "app/api/internal/questions/reorder/route.ts",
+            "status": "untracked",
+            "additions": 31,
+            "deletions": 0
+          },
+          {
+            "path": "app/api/internal/transcript/route.ts",
+            "status": "untracked",
+            "additions": 65,
+            "deletions": 0
+          },
+          {
+            "path": "app/calls/page.tsx",
+            "status": "untracked",
+            "additions": 292,
+            "deletions": 0
+          },
+          {
+            "path": "app/contacts/page.tsx",
+            "status": "untracked",
+            "additions": 258,
+            "deletions": 0
+          },
+          {
+            "path": "app/questions/page.tsx",
+            "status": "untracked",
+            "additions": 310,
+            "deletions": 0
+          },
+          {
+            "path": "app/questions/QuestionList.tsx",
+            "status": "untracked",
+            "additions": 210,
+            "deletions": 0
+          },
+          {
+            "path": "app/summaries/page.tsx",
+            "status": "untracked",
+            "additions": 349,
+            "deletions": 0
+          }
+        ],
+        "symbols": [
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/domain"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/env"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/internal-auth"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/call-completion"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/db"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "zod"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/reconcile"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "next/cache"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "next/link"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "next/navigation"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/calls"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/phone"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "react"
+          }
+        ],
+        "edgeChanges": [
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-internal-transcript-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-twilio-respond-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-twilio-status-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-twilio-voice-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          }
+        ],
+        "summary": "pkg-app-app: 10 file(s), symbols routes=0, db=0, external=0, imports=13"
+      },
+      {
+        "nodeId": "pkg-app-app-route-api-internal-call-context-route-ts",
+        "status": "new",
+        "files": [
+          {
+            "path": "app/api/internal/call-context/route.ts",
+            "status": "untracked",
+            "additions": 95,
+            "deletions": 0
+          }
+        ],
+        "symbols": [
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/domain"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/env"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/internal-auth"
+          }
+        ],
+        "edgeChanges": [
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Extraction Retry API",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Question Ordering API",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-internal-transcript-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Transcript Ingestion API",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-twilio-respond-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Response Webhook",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-twilio-status-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Status Webhook",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-twilio-voice-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Twilio Voice Webhook",
+            "label": "route"
+          }
+        ],
+        "summary": "pkg-app-app-route-api-internal-call-context-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=3"
+      },
+      {
+        "nodeId": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+        "status": "new",
+        "files": [
+          {
+            "path": "app/api/internal/extraction/retry/route.ts",
+            "status": "untracked",
+            "additions": 42,
+            "deletions": 0
+          }
+        ],
+        "symbols": [
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/call-completion"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/db"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/internal-auth"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "zod"
+          }
+        ],
+        "edgeChanges": [
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Extraction Retry API",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-internal-extraction-retry-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          }
+        ],
+        "summary": "pkg-app-app-route-api-internal-extraction-retry-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=4"
+      },
+      {
+        "nodeId": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+        "status": "new",
+        "files": [
+          {
+            "path": "app/api/internal/questions/reorder/route.ts",
+            "status": "untracked",
+            "additions": 31,
+            "deletions": 0
+          }
+        ],
+        "symbols": [
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/db"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "zod"
+          }
+        ],
+        "edgeChanges": [
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Question Ordering API",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-internal-questions-reorder-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          }
+        ],
+        "summary": "pkg-app-app-route-api-internal-questions-reorder-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=2"
+      },
+      {
+        "nodeId": "pkg-app-app-route-api-internal-transcript-route-ts",
+        "status": "new",
+        "files": [
+          {
+            "path": "app/api/internal/transcript/route.ts",
+            "status": "untracked",
+            "additions": 65,
+            "deletions": 0
+          }
+        ],
+        "symbols": [
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/call-completion"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/db"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/internal-auth"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "zod"
+          }
+        ],
+        "edgeChanges": [
+          {
+            "source": "pkg-app-app-route-api-internal-call-context-route-ts",
+            "target": "pkg-app-app-route-api-internal-transcript-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "added",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Transcript Ingestion API",
+            "label": "route"
+          },
+          {
+            "source": "pkg-app-app",
+            "target": "pkg-app-app-route-api-internal-transcript-route-ts",
+            "type": "route",
+            "meta": {},
+            "action": "removed",
+            "relationId": "route",
+            "displayLabelEn": "route",
+            "detailLabelEn": "Route Routes",
+            "label": "route"
+          }
+        ],
+        "summary": "pkg-app-app-route-api-internal-transcript-route-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=4"
+      },
+      {
+        "nodeId": "pkg-lib-lib",
+        "status": "new",
+        "files": [
+          {
+            "path": "lib/call-completion.ts",
+            "status": "untracked",
+            "additions": 128,
+            "deletions": 0
+          },
+          {
+            "path": "lib/domain.ts",
+            "status": "untracked",
+            "additions": 88,
+            "deletions": 0
+          },
+          {
+            "path": "lib/internal-auth.ts",
+            "status": "untracked",
+            "additions": 26,
+            "deletions": 0
+          },
+          {
+            "path": "lib/phone.ts",
+            "status": "untracked",
+            "additions": 40,
+            "deletions": 0
+          }
+        ],
+        "symbols": [
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/db"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/env"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "node:crypto"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "@/lib/domain"
+          },
+          {
+            "kind": "importDependency",
+            "action": "added",
+            "value": "libphonenumber-js"
+          }
+        ],
+        "edgeChanges": [],
+        "summary": "pkg-lib-lib: 4 file(s), symbols routes=0, db=0, external=0, imports=5"
+      },
+      {
+        "nodeId": "pkg-lib-lib-module-db-ts",
+        "status": "new",
+        "files": [
+          {
+            "path": ".DS_Store",
+            "status": "untracked",
+            "additions": 16,
+            "deletions": 0
+          }
+        ],
+        "symbols": [],
+        "edgeChanges": [],
+        "summary": "pkg-lib-lib-module-db-ts: 1 file(s), symbols routes=0, db=0, external=0, imports=0"
+      },
+      {
+        "nodeId": "pkg-realtime-bridge-workers-realtime-bridge",
+        "status": "new",
+        "files": [
+          {
+            "path": "workers/realtime-bridge/.dev.vars.example",
+            "status": "untracked",
+            "additions": 12,
+            "deletions": 0
+          },
+          {
+            "path": "workers/realtime-bridge/package-lock.json",
+            "status": "untracked",
+            "additions": 1528,
+            "deletions": 0
+          },
+          {
+            "path": "workers/realtime-bridge/package.json",
+            "status": "untracked",
+            "additions": 15,
+            "deletions": 0
+          },
+          {
+            "path": "workers/realtime-bridge/README.md",
+            "status": "untracked",
+            "additions": 47,
+            "deletions": 0
+          },
+          {
+            "path": "workers/realtime-bridge/src/index.ts",
+            "status": "untracked",
+            "additions": 1031,
+            "deletions": 0
+          },
+          {
+            "path": "workers/realtime-bridge/tsconfig.json",
+            "status": "untracked",
+            "additions": 13,
+            "deletions": 0
+          },
+          {
+            "path": "workers/realtime-bridge/wrangler.toml",
+            "status": "untracked",
+            "additions": 16,
+            "deletions": 0
+          }
+        ],
+        "symbols": [
+          {
+            "kind": "externalService",
+            "action": "added",
+            "value": "OpenAI"
+          }
+        ],
+        "edgeChanges": [],
+        "summary": "pkg-realtime-bridge-workers-realtime-bridge: 7 file(s), symbols routes=0, db=0, external=1, imports=0"
+      }
+    ],
+    "unmappedFiles": [
+      {
+        "path": "migrations/0001_init.sql",
+        "status": "untracked",
+        "additions": 28,
+        "deletions": 0
+      },
+      {
+        "path": "migrations/0002_contacts_multilingual_soft_delete.sql",
+        "status": "untracked",
+        "additions": 78,
+        "deletions": 0
+      },
+      {
+        "path": "migrations/0003_question_sets_questions_answers.sql",
+        "status": "untracked",
+        "additions": 54,
+        "deletions": 0
+      },
+      {
+        "path": "NestCall.code-workspace",
+        "status": "untracked",
+        "additions": 11,
+        "deletions": 0
+      },
+      {
+        "path": "open-next.config.ts",
+        "status": "untracked",
+        "additions": 4,
+        "deletions": 0
+      },
+      {
+        "path": "public/_headers",
+        "status": "untracked",
+        "additions": 5,
+        "deletions": 0
+      },
+      {
+        "path": "tsconfig.tsbuildinfo",
+        "status": "untracked",
+        "additions": 1,
+        "deletions": 0
+      },
+      {
+        "path": "wrangler.jsonc",
+        "status": "untracked",
+        "additions": 40,
+        "deletions": 0
+      }
+    ],
+    "diffStats": {
+      "additions": 4838,
+      "deletions": 0,
+      "filesChanged": 30
+    },
+    "compareContext": {
+      "mode": "working",
+      "baseRef": "5b33f1f378fa0b7a93c76676e3dcf3df7f4be7f0",
+      "headRef": "5ebe4fcd67825b6807b0928678d9727c456c933a",
+      "computedAt": "2026-03-05T13:12:28.721Z"
+    },
+    "baselineApproval": {
+      "approvalRequired": true,
+      "approvalReasons": [
+        "Protected node rule violated (1)"
+      ],
+      "autoApplyEligible": false,
+      "criticalSignals": {
+        "protectedNodeViolationCount": 1,
+        "removedNodeCount": 0,
+        "removedDataEdgeCount": 0,
+        "removedCallEdgeCount": 0,
+        "proposedEdgeChangeCount": 12,
+        "unmappedFileCount": 8,
+        "unmappedGeneratedNodeIssueCount": 0
+      }
+    },
+    "historyStatus": {
+      "autoHistoryOk": true,
+      "roundId": "20260305221228-5ebe4fc-01",
+      "recordedAt": "2026-03-05T13:12:28.894Z"
+    }
+  }
+}
